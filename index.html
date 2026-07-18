@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB BLINDADO</title>
+    <title>IMPERIO MC | HUB ABSOLUTO</title>
     <style>
         body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 40px 20px; }
         .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
@@ -13,7 +13,7 @@
         .skins { border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.2); }
         .mods { border: 2px solid #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.2); }
         
-        .contenedor-busqueda h3 { margin-top: 0; font-size: 1.1rem; letter-spacing: 1px; }
+        .contenedor-busqueda h3 { margin-top: 0; font-size: 1.2rem; letter-spacing: 1px; }
         .skins h3 { color: #e91e63; }
         .mods h3 { color: #f39c12; }
         
@@ -32,20 +32,20 @@
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB CENTRAL DE OPERACIONES EXCLUSIVAS</p>
+    <p class="subtitulo">HUB DE OPERACIONES PURAS</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
         <h3>🎨 BUSCADOR DE SKINS</h3>
         <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. militar, creeper, pvp...">
-        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar Skins</button>
+        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar en The Skindex</button>
     </div>
 
-    <!-- BUSCADOR DE MODS EXCLUSIVO (MODBAY) -->
+    <!-- BUSCADOR EXCLUSIVO DE ADDONS PURE (MCPE) -->
     <div class="contenedor-busqueda mods">
-        <h3>📦 BUSCADOR DE MODS / ADDONS</h3>
-        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, weapons, mutants...">
-        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Exclusivos</button>
+        <h3>📦 BUSCADOR DE PUROS MODS / ADDONS</h3>
+        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns, mutants...">
+        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
     </div>
 
     <div class="grid">
@@ -55,15 +55,15 @@
     <script>
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
-            if (termino === "") { alert("¡Riky, escribe algo para la skin!"); return; }
+            if (termino === "") { alert("¡Riky, escribe algo!"); return; }
             window.open(`https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`, '_blank');
         }
 
         function buscarMod() {
             const termino = document.getElementById('busquedaMod').value.trim();
-            if (termino === "") { alert("¡Riky, no dejes el cuadro de mods vacío!"); return; }
-            // Redirección blindada al buscador de mods de ModBay
-            window.open(`https://modbay.org/index.php?do=search&subaction=search&story=${encodeURIComponent(termino)}`, '_blank');
+            if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
+            // FILTRADO ABSOLUTO: Mandamos a la subsección exclusiva de addons para Minecraft Bedrock de móvil
+            window.open(`https://www.curseforge.com/minecraft-bedrock/addons/search?search=${encodeURIComponent(termino)}`, '_blank');
         }
     </script>
 </body>
