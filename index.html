@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB ABSOLUTO</title>
+    <title>IMPERIO MC | HUB INTEGRAL</title>
     <style>
-        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 40px 20px; }
+        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px 20px; }
         .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 40px; font-size: 1rem; }
+        .subtitulo { color: #8a92b2; margin-bottom: 35px; font-size: 1rem; }
         
-        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 25px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 20px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .skins { border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.2); }
         .mods { border: 2px solid #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.2); }
+        .servers { border: 2px solid #9b59b6; box-shadow: 0 0 15px rgba(155,89,182,0.2); }
         
         .contenedor-busqueda h3 { margin-top: 0; font-size: 1.2rem; letter-spacing: 1px; }
         .skins h3 { color: #e91e63; }
         .mods h3 { color: #f39c12; }
+        .servers h3 { color: #9b59b6; }
         
         .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
         
@@ -24,6 +26,8 @@
         .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
         .btn-mods { background: #f39c12; }
         .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
+        .btn-servers { background: #9b59b6; }
+        .btn-servers:hover { background: #8e44ad; box-shadow: 0 0 10px #9b59b6; }
         
         .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
         .btn-hub { background: #fff; color: #000; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
@@ -32,7 +36,7 @@
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB DE OPERACIONES PURAS</p>
+    <p class="subtitulo">HUB DE OPERACIONES COMPLETO</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
@@ -41,11 +45,18 @@
         <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar en The Skindex</button>
     </div>
 
-    <!-- BUSCADOR EXCLUSIVO DE ADDONS PURE (MCPE) -->
+    <!-- BUSCADOR DE MODS -->
     <div class="contenedor-busqueda mods">
         <h3>📦 BUSCADOR DE PUROS MODS / ADDONS</h3>
-        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns, mutants...">
+        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns...">
         <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
+    </div>
+
+    <!-- BUSCADOR DE SERVIDORES BEDROCK -->
+    <div class="contenedor-busqueda servers">
+        <h3>🌐 BUSCADOR DE SERVIDORES (BEDROCK)</h3>
+        <input type="text" id="busquedaServer" class="caja-texto" placeholder="Ej. survival, skywars, pvp...">
+        <button onclick="buscarServer()" class="btn-buscar btn-servers">Buscar Servidores</button>
     </div>
 
     <div class="grid">
@@ -62,8 +73,14 @@
         function buscarMod() {
             const termino = document.getElementById('busquedaMod').value.trim();
             if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
-            // FILTRADO ABSOLUTO: Mandamos a la subsección exclusiva de addons para Minecraft Bedrock de móvil
             window.open(`https://www.curseforge.com/minecraft-bedrock/addons/search?search=${encodeURIComponent(termino)}`, '_blank');
+        }
+
+        function buscarServer() {
+            const termino = document.getElementById('busquedaServer').value.trim();
+            if (termino === "") { alert("¡Riky, escribe qué tipo de server buscas!"); return; }
+            // URL perfecta de búsqueda para la base de datos de servidores de Bedrock
+            window.open(`https://minecraftpocket-servers.com/search/${encodeURIComponent(termino)}/`, '_blank');
         }
     </script>
 </body>
