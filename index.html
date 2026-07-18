@@ -41,7 +41,7 @@
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
     <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO PERFECCIONADO</p>
 
-    <!-- BUSCADOR DE SKINS SIN CLOUDFLARE -->
+    <!-- BUSCADOR DE SKINS CORREGIDO POR RIKY -->
     <div class="contenedor-busqueda skins">
         <h3>🎨 BUSCADOR DE SKINS</h3>
         <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. pvp, enderman, neon...">
@@ -72,8 +72,8 @@
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
             if (termino === "") { alert("¡Riky, escribe algo!"); return; }
-            // Nueva URL que salta Cloudflare limpiamente en móviles
-            window.open(`https://www.minecraftskins.net/search/keyword/${encodeURIComponent(termino)}`, '_blank');
+            // URL corregida quitando 'keyword', tal como descubriste
+            window.open(`https://www.minecraftskins.net/search/${encodeURIComponent(termino)}`, '_blank');
         }
 
         function buscarMod() {
