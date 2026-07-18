@@ -39,13 +39,13 @@
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO</p>
+    <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO PERFECCIONADO</p>
 
-    <!-- BUSCADOR DE SKINS -->
+    <!-- BUSCADOR DE SKINS SIN CLOUDFLARE -->
     <div class="contenedor-busqueda skins">
         <h3>🎨 BUSCADOR DE SKINS</h3>
-        <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. militar, creeper, pvp...">
-        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar en The Skindex</button>
+        <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. pvp, enderman, neon...">
+        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar Skins Premium</button>
     </div>
 
     <!-- BUSCADOR DE MODS -->
@@ -55,7 +55,7 @@
         <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
     </div>
 
-    <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA (SIN CAJA DE TEXTO) -->
+    <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA -->
     <div class="contenedor-busqueda servers">
         <h3>🌐 LISTA DE SERVIDORES BEDROCK</h3>
         <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-buscar btn-directo">
@@ -72,7 +72,8 @@
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
             if (termino === "") { alert("¡Riky, escribe algo!"); return; }
-            window.open(`https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`, '_blank');
+            // Nueva URL que salta Cloudflare limpiamente en móviles
+            window.open(`https://www.minecraftskins.net/search/keyword/${encodeURIComponent(termino)}`, '_blank');
         }
 
         function buscarMod() {
