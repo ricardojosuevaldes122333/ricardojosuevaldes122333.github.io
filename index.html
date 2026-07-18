@@ -3,71 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB SUPREMO</title>
+    <title>IMPERIO MC | HUB BLINDADO</title>
     <style>
-        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 25px 20px; }
-        .titulo { font-size: 2.8rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 30px; font-size: 0.9rem; }
+        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 40px 20px; }
+        .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
+        .subtitulo { color: #8a92b2; margin-bottom: 40px; font-size: 1rem; }
         
-        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 15px auto; padding: 15px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .skins { border: 2px solid #e91e63; box-shadow: 0 0 12px rgba(233,30,99,0.2); }
-        .addons { border: 2px solid #f39c12; box-shadow: 0 0 12px rgba(243,156,18,0.2); }
-        .mapas { border: 2px solid #9b59b6; box-shadow: 0 0 12px rgba(155,89,182,0.2); }
-        .recursos { border: 2px solid #00ffcc; box-shadow: 0 0 12px rgba(0,255,204,0.2); }
+        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 25px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .skins { border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.2); }
+        .mods { border: 2px solid #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.2); }
         
-        .contenedor-busqueda h3 { margin-top: 0; font-size: 1rem; letter-spacing: 1px; margin-bottom: 10px; }
+        .contenedor-busqueda h3 { margin-top: 0; font-size: 1.1rem; letter-spacing: 1px; }
         .skins h3 { color: #e91e63; }
-        .addons h3 { color: #f39c12; }
-        .mapas h3 { color: #9b59b6; }
-        .recursos h3 { color: #00ffcc; }
+        .mods h3 { color: #f39c12; }
         
-        .caja-texto { width: 85%; padding: 8px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 0.9rem; margin-bottom: 10px; text-align: center; }
+        .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
         
-        .btn-buscar { color: #fff; border: none; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.9rem; width: 90%; transition: 0.3s; }
+        .btn-buscar { color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 90%; transition: 0.3s; }
         .btn-skins { background: #e91e63; }
         .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
-        .btn-addons { background: #f39c12; }
-        .btn-addons:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
-        .btn-mapas { background: #9b59b6; }
-        .btn-mapas:hover { background: #8e44ad; box-shadow: 0 0 10px #9b59b6; }
-        .btn-recursos { background: #00ffcc; color: #000; }
-        .btn-recursos:hover { background: #00ccaa; box-shadow: 0 0 10px #00ffcc; }
+        .btn-mods { background: #f39c12; }
+        .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
         
-        .grid { display: grid; gap: 15px; max-width: 400px; margin: 15px auto 0 auto; }
-        .btn-hub { background: #fff; color: #000; padding: 12px; border-radius: 15px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+        .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
+        .btn-hub { background: #fff; color: #000; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
         .btn-hub:hover { background: #000; color: #fff; transform: scale(1.03); }
     </style>
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB CENTRAL DE OPERACIONES V3</p>
+    <p class="subtitulo">HUB CENTRAL DE OPERACIONES EXCLUSIVAS</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
         <h3>🎨 BUSCADOR DE SKINS</h3>
         <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. militar, creeper, pvp...">
-        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar en The Skindex</button>
+        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar Skins</button>
     </div>
 
-    <!-- BUSCADOR DE ADDONS -->
-    <div class="contenedor-busqueda addons">
-        <h3>📦 BUSCADOR DE ADDONS / MODS</h3>
-        <input type="text" id="busquedaAddon" class="caja-texto" placeholder="Ej. mutants, lucky blocks...">
-        <button onclick="buscarAddon()" class="btn-buscar btn-addons">Filtrar Addons en MCPEDL</button>
-    </div>
-
-    <!-- BUSCADOR DE MAPAS -->
-    <div class="contenedor-busqueda mapas">
-        <h3>🗺️ BUSCADOR DE MAPAS / MUNDOS</h3>
-        <input type="text" id="busquedaMapa" class="caja-texto" placeholder="Ej. lucky block race, skyblock...">
-        <button onclick="buscarMapa()" class="btn-buscar btn-mapas">Filtrar Mapas en MCPEDL</button>
-    </div>
-
-    <!-- BUSCADOR DE TEXTURAS -->
-    <div class="contenedor-busqueda recursos">
-        <h3>✨ PACKS DE RECURSOS (TEXTURAS)</h3>
-        <input type="text" id="busquedaRecurso" class="caja-texto" placeholder="Ej. faithful, shaders...">
-        <button onclick="buscarRecurso()" class="btn-buscar btn-recursos">Filtrar Texturas en MCPEDL</button>
+    <!-- BUSCADOR DE MODS EXCLUSIVO (MODBAY) -->
+    <div class="contenedor-busqueda mods">
+        <h3>📦 BUSCADOR DE MODS / ADDONS</h3>
+        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, weapons, mutants...">
+        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Exclusivos</button>
     </div>
 
     <div class="grid">
@@ -77,29 +55,15 @@
     <script>
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
-            if (termino === "") { alert("¡Riky, escribe algo!"); return; }
+            if (termino === "") { alert("¡Riky, escribe algo para la skin!"); return; }
             window.open(`https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`, '_blank');
         }
 
-        function buscarAddon() {
-            const termino = document.getElementById('busquedaAddon').value.trim();
-            if (termino === "") { alert("¡No dejes el cuadro vacío!"); return; }
-            // Filtrado estricto para la categoría de Addons en MCPEDL
-            window.open(`https://mcpedl.com/category/addons/?s=${encodeURIComponent(termino)}`, '_blank');
-        }
-
-        function buscarMapa() {
-            const termino = document.getElementById('busquedaMapa').value.trim();
-            if (termino === "") { alert("¡Escribe el mapa que buscas!"); return; }
-            // Filtrado estricto para la categoría de Mapas en MCPEDL
-            window.open(`https://mcpedl.com/category/maps/?s=${encodeURIComponent(termino)}`, '_blank');
-        }
-
-        function buscarRecurso() {
-            const termino = document.getElementById('busquedaRecurso').value.trim();
-            if (termino === "") { alert("¡Escribe la textura que buscas!"); return; }
-            // Filtrado estricto para la categoría de Texturas en MCPEDL
-            window.open(`https://mcpedl.com/category/texture-packs/?s=${encodeURIComponent(termino)}`, '_blank');
+        function buscarMod() {
+            const termino = document.getElementById('busquedaMod').value.trim();
+            if (termino === "") { alert("¡Riky, no dejes el cuadro de mods vacío!"); return; }
+            // Redirección blindada al buscador de mods de ModBay
+            window.open(`https://modbay.org/index.php?do=search&subaction=search&story=${encodeURIComponent(termino)}`, '_blank');
         }
     </script>
 </body>
