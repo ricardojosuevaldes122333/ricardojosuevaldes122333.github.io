@@ -30,8 +30,8 @@
         .btn-recursos:hover { background: #00ccaa; box-shadow: 0 0 10px #00ffcc; }
         
         .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
-        .btn-hub { background: #24293e; color: #fff; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #8a92b2; transition: 0.3s; display: block; }
-        .btn-hub:hover { background: #ffffff; color: #000; box-shadow: 0 0 20px #ffffff; transform: scale(1.03); }
+        .btn-hub { background: #fff; color: #000; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+        .btn-hub:hover { background: #000; color: #fff; transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -45,17 +45,17 @@
         <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar en The Skindex</button>
     </div>
 
-    <!-- BUSCADOR DE MODS -->
+    <!-- BUSCADOR DE MODS (CORREGIDO PARA MÓVIL) -->
     <div class="contenedor-busqueda mods">
-        <h3>📦 BUSCADOR DE MODS</h3>
-        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, optimización...">
-        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar en CurseForge</button>
+        <h3>📦 BUSCADOR DE MODS / ADDONS</h3>
+        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, mutants...">
+        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar en MCPEDL</button>
     </div>
 
     <!-- BUSCADOR DE PACKS DE RECURSOS -->
     <div class="contenedor-busqueda recursos">
         <h3>✨ PACKS DE RECURSOS (TEXTURAS)</h3>
-        <input type="text" id="busquedaRecurso" class="caja-texto" placeholder="Ej. faithful, pvp texture, shaders...">
+        <input type="text" id="busquedaRecurso" class="caja-texto" placeholder="Ej. faithful, shaders...">
         <button onclick="buscarRecurso()" class="btn-buscar btn-recursos">Buscar Texturas</button>
     </div>
 
@@ -66,33 +66,21 @@
     <script>
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
-            if (termino === "") {
-                alert("¡Riky, escribe algo para buscar la skin!");
-                return;
-            }
-            const urlFinal = `https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`;
-            window.open(urlFinal, '_blank');
+            if (termino === "") { alert("¡Riky, escribe algo para la skin!"); return; }
+            window.open(`https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`, '_blank');
         }
 
         function buscarMod() {
             const termino = document.getElementById('busquedaMod').value.trim();
-            if (termino === "") {
-                alert("¡Riky, no dejes el cuadro de mods vacío!");
-                return;
-            }
-            const urlFinal = `https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}&class=mc-mods`;
-            window.open(urlFinal, '_blank');
+            if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
+            // Redirección perfecta a las búsquedas de addons en MCPEDL
+            window.open(`https://mcpedl.com/?s=${encodeURIComponent(termino)}`, '_blank');
         }
 
         function buscarRecurso() {
             const termino = document.getElementById('busquedaRecurso').value.trim();
-            if (termino === "") {
-                alert("¡Riky, escribe qué textura o pack quieres buscar!");
-                return;
-            }
-            // URL exacta para buscar texture packs / recursos en CurseForge
-            const urlFinal = `https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}&class=texture-packs`;
-            window.open(urlFinal, '_blank');
+            if (termino === "") { alert("¡Riky, escribe qué textura buscas!"); return; }
+            window.open(`https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}&class=texture-packs`, '_blank');
         }
     </script>
 </body>
