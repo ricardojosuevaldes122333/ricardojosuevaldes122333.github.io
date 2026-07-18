@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB DEFINITIVO</title>
+    <title>IMPERIO MC | HUB PUENTE ABSOLUTO</title>
     <style>
         body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px 20px; }
         .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
@@ -21,13 +21,16 @@
         
         .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
         
-        .btn-buscar { color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 90%; transition: 0.3s; }
+        .btn-buscar { color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 90%; transition: 0.3s; text-decoration: none; display: inline-block; }
         .btn-skins { background: #e91e63; }
         .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
         .btn-mods { background: #f39c12; }
         .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
-        .btn-servers { background: #9b59b6; width: 100%; padding: 15px; font-size: 1.1rem; }
-        .btn-servers:hover { background: #8e44ad; box-shadow: 0 0 10px #9b59b6; }
+        
+        .btn-directo { background: #9b59b6; padding: 18px 20px; font-size: 1.1rem; width: 90%; box-sizing: border-box; }
+        .btn-directo:hover { background: #8e44ad; box-shadow: 0 0 15px #9b59b6; transform: scale(1.02); }
+        
+        .info-status { color: #57ff57; font-size: 0.85rem; font-weight: bold; margin-top: 10px; letter-spacing: 1px; }
         
         .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
         .btn-hub { background: #fff; color: #000; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
@@ -36,7 +39,7 @@
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB DE OPERACIONES INDESTRUCTIBLE</p>
+    <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
@@ -52,10 +55,13 @@
         <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
     </div>
 
-    <!-- BOTÓN DIRECTO DE SERVIDORES ESTABLE -->
+    <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA (SIN CAJA DE TEXTO) -->
     <div class="contenedor-busqueda servers">
-        <h3>🌐 LISTA DE SERVIDORES ACTIVE</h3>
-        <button onclick="irAServidores()" class="btn-buscar btn-servers">Ver Todos los Servidores Bedrock</button>
+        <h3>🌐 LISTA DE SERVIDORES BEDROCK</h3>
+        <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-buscar btn-directo">
+            🚀 ENTRAR AL CATÁLOGO GENERAL
+        </a>
+        <div class="info-status">● VERIFICADOS ON-LINE STRATEGIC</div>
     </div>
 
     <div class="grid">
@@ -73,11 +79,6 @@
             const termino = document.getElementById('busquedaMod').value.trim();
             if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
             window.open(`https://www.curseforge.com/minecraft-bedrock/addons/search?search=${encodeURIComponent(termino)}`, '_blank');
-        }
-
-        function irAServidores() {
-            // Redirección directa y segura a la lista vieja y confiable de Bedrock
-            window.open('https://minecraft-server-list.com/sort/bedrock/', '_blank');
         }
     </script>
 </body>
