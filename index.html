@@ -3,75 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | DATA CENTER</title>
+    <title>IMPERIO MC | HUB INTEGRADO</title>
     <style>
-        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; }
-        .titulo { font-size: 2.5rem; color: #00ffcc; text-shadow: 0 0 15px #00ffcc; margin-bottom: 5px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 25px; font-size: 0.9rem; }
+        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px 20px; }
+        .titulo { font-size: 2.8rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
+        .subtitulo { color: #8a92b2; margin-bottom: 30px; font-size: 1rem; }
         
-        .contenedor { background: #1a1d29; max-width: 400px; margin: 0 auto 15px auto; padding: 15px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); text-align: left; }
-        .contenedor h3 { text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.2rem; }
+        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 20px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .skins { border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.2); }
+        .mods { border: 2px solid #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.2); }
+        .servers { border: 2px solid #9b59b6; box-shadow: 0 0 15px rgba(155,89,182,0.2); }
+        .video-info { border: 2px solid #00ffcc; box-shadow: 0 0 15px rgba(0,255,204,0.2); }
         
-        .skins { border: 2px solid #e91e63; }
+        .contenedor-busqueda h3 { margin-top: 0; font-size: 1.2rem; letter-spacing: 1px; }
         .skins h3 { color: #e91e63; }
-        .biblia { border: 2px solid #f39c12; }
-        .biblia h3 { color: #f39c12; }
-        .servers { border: 2px solid #9b59b6; }
+        .mods h3 { color: #f39c12; }
         .servers h3 { color: #9b59b6; }
+        .video-info h3 { color: #00ffcc; }
         
-        .btn-main { background: #24293e; color: #fff; border: 1px solid #444; padding: 12px; border-radius: 8px; width: 100%; display: block; margin-bottom: 10px; font-weight: bold; text-decoration: none; text-align: center; box-sizing: border-box; }
-        .btn-main:hover { border-color: #00ffcc; }
+        .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
         
-        .lista-info { list-style: none; padding: 0; margin: 0; }
-        .lista-info li { background: #24293e; padding: 10px; border-radius: 6px; margin-bottom: 8px; font-size: 0.9rem; border-left: 4px solid #f39c12; }
+        .btn-buscar { color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 90%; transition: 0.3s; text-decoration: none; display: inline-block; margin-bottom: 5px; }
+        .btn-skins { background: #e91e63; }
+        .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
+        .btn-mods { background: #f39c12; }
+        .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
+        .btn-directo { background: #9b59b6; padding: 15px 20px; }
+        .btn-directo:hover { background: #8e44ad; box-shadow: 0 0 15px #9b59b6; }
+        
+        /* ESTILOS DE LA LISTA INTERNA DEL VIDEO */
+        .lista-datos { text-align: left; padding-left: 10px; margin-top: 15px; }
+        .item-lista { background: #24293e; padding: 12px; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid #00ffcc; font-size: 0.95rem; }
         
         .oculto { display: none; }
-        .btn-volver { background: #e91e63; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; text-align: center; font-weight: bold; }
+        .grid-categorias { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-cat { background: #24293e; color: #fff; padding: 12px; border-radius: 8px; border: 1px solid #e91e63; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-align: center; }
+        .btn-cat:hover { background: #e91e63; }
+        .btn-volver { background: #333; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div id="pantalla-principal">
-        <h1 class="titulo">🎮 IMPERIO MC</h1>
-        <p class="subtitulo">BASE DE DATOS INDESTRUCTIBLE A PRUEBA DE CLOUDFLARE</p>
-        
-        <div class="contenedor skins">
-            <h3>🎨 SKINS PREMIUM</h3>
-            <a href="https://www.minecraftskins.net/" target="_blank" class="btn-main">🌐 Catálogo General de Skins</a>
+    <div id="hub-principal">
+        <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
+        <p class="subtitulo">HUB DE OPERACIONES TOTALMENTE BLINDADO</p>
+
+        <!-- SECCIÓN SKINS PANEL INTERNO -->
+        <div class="contenedor-busqueda skins">
+            <h3>🎨 SECCIÓN DE SKINS PREMIUM</h3>
+            <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Buscar por palabra (Ej. pvp, neon)...">
+            <button onclick="buscarSkin()" class="btn-buscar btn-skins">🔍 Buscar Directo</button>
+            <button onclick="mostrarCategorias()" class="btn-buscar" style="background: #9c27b0;">🗂️ Ver por Categorías</button>
         </div>
 
-        <div class="contenedor biblia">
-            <h3>📕 GUÍAS LOCALES (SIN REDIRECCIÓN)</h3>
-            <button onclick="irA('pociones')" class="btn-main">⚗️ Ver Recetas de Pociones Comunes</button>
+        <!-- BUSCADOR DE MODS SALTANDO CLOUDFLARE VIA MCPEDL -->
+        <div class="contenedor-busqueda mods">
+            <h3>📦 BUSCADOR DE PUROS MODS / ADDONS</h3>
+            <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns, Naruto...">
+            <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
         </div>
 
-        <div class="contenedor servers">
-            <h3>🌐 SERVIDORES BEDROCK</h3>
-            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main">🚀 Lista de Servers Estable</a>
+        <!-- NUEVA SECCIÓN: INFORMACIÓN DE LA GUÍA EN LISTA -->
+        <div class="contenedor-busqueda video-info">
+            <h3>📋 INFORMACIÓN DE LA GUÍA SUPREMA</h3>
+            <p style="color: #8a92b2; font-size: 0.85rem; margin-bottom: 10px;">Datos clave extraídos directamente:</p>
+            <div class="lista-datos">
+                <!-- Aquí se listarán las opciones del video de forma interna -->
+                <div class="item-lista">🔹 <b>Opción 1:</b> [Esperando los datos del video, Riky...]</div>
+                <div class="item-lista">🔹 <b>Opción 2:</b> [Pásame qué trucos venían en el link...]</div>
+                <div class="item-lista">🔹 <b>Opción 3:</b> [Y los acomodamos aquí al instante sin salir...]</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA -->
+        <div class="contenedor-busqueda servers">
+            <h3>🌐 LISTA DE SERVIDORES BEDROCK</h3>
+            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-buscar btn-directo">
+                🚀 ENTRAR AL CATÁLOGO GENERAL
+            </a>
         </div>
     </div>
 
-    <!-- PANTALLA INTERNA: LISTA DE POCIONES FIJAS -->
-    <div id="pantalla-pociones" class="contenedor biblia oculto" style="max-width: 400px; margin: 0 auto;">
-        <h3>⚗️ RECETARIO OFICIAL DEL IMPERIO</h3>
-        <ul class="lista-info">
-            <li><strong>💪 Fuerza:</strong> Verruga del Nether + Polvo de Blaze</li>
-            <li><strong>🫥 Invisibilidad:</strong> Poción Visión Nocturna + Ojo Araña Fermentado</li>
-            <li><strong>⚡ Velocidad:</strong> Verruga del Nether + Azúcar</li>
-            <li><strong>❤️ Curación:</strong> Verruga del Nether + Rodaja de Sandía Reluciente</li>
-            <li><strong>🧱 Soporte:</strong> 3 de Adoquín + 1 Vara de Blaze (Crafteo)</li>
-            <li><strong>🪣 Caldero:</strong> 7 Lingotes de Hierro en "U" (Crafteo)</li>
-        </ul>
-        <button onclick="volver()" class="btn-volver">← Volver al HUB</button>
+    <!-- PANEL DE CATEGORÍAS EXCLUSIVAS -->
+    <div id="hub-categorias" class="contenedor-busqueda skins oculto" style="max-width: 400px; margin: 20px auto;">
+        <h3>🗂️ CATEGORÍAS DEL IMPERIO</h3>
+        <div class="grid-categorias">
+            <a href="https://www.minecraftskins.net/category/movies" target="_blank" class="btn-cat">🎬 Movies</a>
+            <a href="https://www.minecraftskins.net/category/tv" target="_blank" class="btn-cat">📺 TV Series</a>
+            <a href="https://www.minecraftskins.net/category/games" target="_blank" class="btn-cat">🎮 Games</a>
+            <a href="https://www.minecraftskins.net/category/people" target="_blank" class="btn-cat">👥 People</a>
+            <a href="https://www.minecraftskins.net/category/fantasy" target="_blank" class="btn-cat">🦄 Fantasy</a>
+            <a href="https://www.minecraftskins.net/category/mobs" target="_blank" class="btn-cat">💀 Mobs</a>
+        </div>
+        <a href="#" onclick="ocultarCategorias()" class="btn-volver">← Volver al Menú Principal</a>
     </div>
 
     <script>
-        function irA(pantalla) {
-            document.getElementById('pantalla-principal').classList.add('oculto');
-            if(pantalla === 'pociones') document.getElementById('pantalla-pociones').classList.remove('oculto');
+        function buscarSkin() {
+            const termino = document.getElementById('busquedaSkin').value.trim();
+            if (termino === "") { alert("¡Riky, escribe algo para buscar!"); return; }
+            window.open(`https://www.minecraftskins.net/search/${encodeURIComponent(termino)}`, '_blank');
         }
-        function volver() {
-            document.getElementById('pantalla-pociones').classList.add('oculto');
-            document.getElementById('pantalla-principal').classList.remove('oculto');
+
+        function buscarMod() {
+            const termino = document.getElementById('busquedaMod').value.trim();
+            if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
+            // Redirección ultra estable a MCPEDL libre de bloqueos Cloudflare
+            window.open(`https://mcpedl.com/?s=${encodeURIComponent(termino)}`, '_blank');
+        }
+
+        function mostrarCategorias() {
+            document.getElementById('hub-principal').classList.add('oculto');
+            document.getElementById('hub-categorias').classList.remove('oculto');
+        }
+
+        function ocultarCategorias() {
+            document.getElementById('hub-categorias').classList.add('oculto');
+            document.getElementById('hub-principal').classList.remove('oculto');
         }
     </script>
 </body>
