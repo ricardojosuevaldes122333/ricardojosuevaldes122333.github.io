@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB INTEGRAL</title>
+    <title>IMPERIO MC | HUB DEFINITIVO</title>
     <style>
         body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px 20px; }
         .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
@@ -26,7 +26,7 @@
         .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
         .btn-mods { background: #f39c12; }
         .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
-        .btn-servers { background: #9b59b6; }
+        .btn-servers { background: #9b59b6; width: 100%; padding: 15px; font-size: 1.1rem; }
         .btn-servers:hover { background: #8e44ad; box-shadow: 0 0 10px #9b59b6; }
         
         .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
@@ -36,7 +36,7 @@
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB DE OPERACIONES COMPLETO</p>
+    <p class="subtitulo">HUB DE OPERACIONES INDESTRUCTIBLE</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
@@ -52,11 +52,10 @@
         <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
     </div>
 
-    <!-- BUSCADOR DE SERVIDORES BEDROCK -->
+    <!-- BOTÓN DIRECTO DE SERVIDORES ESTABLE -->
     <div class="contenedor-busqueda servers">
-        <h3>🌐 BUSCADOR DE SERVIDORES (BEDROCK)</h3>
-        <input type="text" id="busquedaServer" class="caja-texto" placeholder="Ej. survival, skywars, pvp...">
-        <button onclick="buscarServer()" class="btn-buscar btn-servers">Buscar Servidores</button>
+        <h3>🌐 LISTA DE SERVIDORES ACTIVE</h3>
+        <button onclick="irAServidores()" class="btn-buscar btn-servers">Ver Todos los Servidores Bedrock</button>
     </div>
 
     <div class="grid">
@@ -76,11 +75,9 @@
             window.open(`https://www.curseforge.com/minecraft-bedrock/addons/search?search=${encodeURIComponent(termino)}`, '_blank');
         }
 
-        function buscarServer() {
-            const termino = document.getElementById('busquedaServer').value.trim();
-            if (termino === "") { alert("¡Riky, escribe qué tipo de server buscas!"); return; }
-            // URL perfecta de búsqueda para la base de datos de servidores de Bedrock
-            window.open(`https://minecraftpocket-servers.com/search/${encodeURIComponent(termino)}/`, '_blank');
+        function irAServidores() {
+            // Redirección directa y segura a la lista vieja y confiable de Bedrock
+            window.open('https://minecraft-server-list.com/sort/bedrock/', '_blank');
         }
     </script>
 </body>
