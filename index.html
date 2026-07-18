@@ -32,47 +32,74 @@
         
         .info-status { color: #57ff57; font-size: 0.85rem; font-weight: bold; margin-top: 10px; letter-spacing: 1px; }
         
+        /* ESTILOS DE CATEGORÍAS ACCESIBLES */
+        .oculto { display: none; }
+        .grid-categorias { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-cat { background: #24293e; color: #fff; padding: 12px; border-radius: 8px; border: 1px solid #e91e63; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .btn-cat:hover { background: #e91e63; box-shadow: 0 0 10px #e91e63; }
+        .btn-volver { background: #333; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+        
         .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
         .btn-hub { background: #fff; color: #000; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #fff; transition: 0.3s; display: block; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
         .btn-hub:hover { background: #000; color: #fff; transform: scale(1.03); }
     </style>
 </head>
 <body>
-    <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO PERFECCIONADO</p>
+    <div id="hub-principal">
+        <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
+        <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO EVOLUCIONADO</p>
 
-    <!-- BUSCADOR DE SKINS CORREGIDO POR RIKY -->
-    <div class="contenedor-busqueda skins">
-        <h3>🎨 BUSCADOR DE SKINS</h3>
-        <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. pvp, enderman, neon...">
-        <button onclick="buscarSkin()" class="btn-buscar btn-skins">Buscar Skins Premium</button>
+        <!-- SECCIÓN SKINS REFORMADA CON PANEL INTERNO -->
+        <div class="contenedor-busqueda skins">
+            <h3>🎨 SECCIÓN DE SKINS PREMIUM</h3>
+            <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Buscar por palabra (Ej. pvp, neon)...">
+            <button onclick="buscarSkin()" class="btn-buscar btn-skins" style="margin-bottom: 10px;">🔍 Buscar Directo</button>
+            <button onclick="mostrarCategorias()" class="btn-buscar" style="background: #9c27b0;">🗂️ Ver por Categorías</button>
+        </div>
+
+        <!-- BUSCADOR DE MODS -->
+        <div class="contenedor-busqueda mods">
+            <h3>📦 BUSCADOR DE PUROS MODS / ADDONS</h3>
+            <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns...">
+            <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
+        </div>
+
+        <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA -->
+        <div class="contenedor-busqueda servers">
+            <h3>🌐 LISTA DE SERVIDORES BEDROCK</h3>
+            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-buscar btn-directo">
+                🚀 ENTRAR AL CATÁLOGO GENERAL
+            </a>
+            <div class="info-status">● VERIFICADOS ON-LINE STRATEGIC</div>
+        </div>
+
+        <div class="grid">
+            <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 EDITOR DE SKINS ANIMADO</a>
+        </div>
     </div>
 
-    <!-- BUSCADOR DE MODS -->
-    <div class="contenedor-busqueda mods">
-        <h3>📦 BUSCADOR DE PUROS MODS / ADDONS</h3>
-        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns...">
-        <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar Addons Bedrock</button>
-    </div>
-
-    <!-- SECCIÓN DE SERVIDORES REDIRECCIÓN DIRECTA -->
-    <div class="contenedor-busqueda servers">
-        <h3>🌐 LISTA DE SERVIDORES BEDROCK</h3>
-        <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-buscar btn-directo">
-            🚀 ENTRAR AL CATÁLOGO GENERAL
-        </a>
-        <div class="info-status">● VERIFICADOS ON-LINE STRATEGIC</div>
-    </div>
-
-    <div class="grid">
-        <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 EDITOR DE SKINS ANIMADO</a>
+    <!-- SECCIÓN INTERNA NUEVA: PANEL DE CATEGORÍAS EXCLUSIVAS -->
+    <div id="hub-categorias" class="contenedor-busqueda skins oculto" style="max-width: 400px; margin: 20px auto;">
+        <h3>🗂️ CATEGORÍAS DEL IMPERIO</h3>
+        <p style="color: #8a92b2; font-size: 0.85rem;">Selecciona una categoría para explorar en vivo:</p>
+        
+        <div class="grid-categorias">
+            <a href="https://www.minecraftskins.net/category/movies" target="_blank" class="btn-cat">🎬 Movies</a>
+            <a href="https://www.minecraftskins.net/category/tv" target="_blank" class="btn-cat">📺 TV Series</a>
+            <a href="https://www.minecraftskins.net/category/games" target="_blank" class="btn-cat">🎮 Games</a>
+            <a href="https://www.minecraftskins.net/category/people" target="_blank" class="btn-cat">👥 People</a>
+            <a href="https://www.minecraftskins.net/category/fantasy" target="_blank" class="btn-cat">🦄 Fantasy</a>
+            <a href="https://www.minecraftskins.net/category/mobs" target="_blank" class="btn-cat">💀 Mobs</a>
+            <a href="https://www.minecraftskins.net/category/other" target="_blank" class="btn-cat">🌀 Other</a>
+        </div>
+        
+        <a href="#" onclick="ocultarCategorias()" class="btn-volver">← Volver al Menú Principal</a>
     </div>
 
     <script>
         function buscarSkin() {
             const termino = document.getElementById('busquedaSkin').value.trim();
-            if (termino === "") { alert("¡Riky, escribe algo!"); return; }
-            // URL corregida quitando 'keyword', tal como descubriste
+            if (termino === "") { alert("¡Riky, escribe algo para buscar!"); return; }
             window.open(`https://www.minecraftskins.net/search/${encodeURIComponent(termino)}`, '_blank');
         }
 
@@ -80,6 +107,19 @@
             const termino = document.getElementById('busquedaMod').value.trim();
             if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
             window.open(`https://www.curseforge.com/minecraft-bedrock/addons/search?search=${encodeURIComponent(termino)}`, '_blank');
+        }
+
+        // CONTROLADORES DE PANTALLA
+        function mostrarCategorias() {
+            document.getElementById('hub-principal').classList.add('oculto');
+            document.getElementById('hub-categorias').classList.remove('oculto');
+        }
+
+        document.getElementById('hub-categorias').classList.add('oculto');
+
+        function ocultarCategorias() {
+            document.getElementById('hub-categorias').classList.add('oculto');
+            document.getElementById('hub-principal').classList.remove('oculto');
         }
     </script>
 </body>
