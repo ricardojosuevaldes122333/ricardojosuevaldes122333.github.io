@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPERIO MC | HUB</title>
     <style>
-        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 40px 20px; }
-        .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 10px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 40px; }
+        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px 20px; }
+        .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 5px; }
+        .subtitulo { color: #8a92b2; margin-bottom: 35px; font-size: 1rem; }
         
-        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 25px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 20px auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .skins { border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.2); }
         .mods { border: 2px solid #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.2); }
+        .recursos { border: 2px solid #00ffcc; box-shadow: 0 0 15px rgba(0,255,204,0.2); }
         
-        .contenedor-busqueda h3 { margin-top: 0; }
+        .contenedor-busqueda h3 { margin-top: 0; font-size: 1.1rem; letter-spacing: 1px; }
         .skins h3 { color: #e91e63; }
         .mods h3 { color: #f39c12; }
+        .recursos h3 { color: #00ffcc; }
         
         .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
         
@@ -24,15 +26,17 @@
         .btn-skins:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
         .btn-mods { background: #f39c12; }
         .btn-mods:hover { background: #e67e22; box-shadow: 0 0 10px #f39c12; }
+        .btn-recursos { background: #00ffcc; color: #000; }
+        .btn-recursos:hover { background: #00ccaa; box-shadow: 0 0 10px #00ffcc; }
         
-        .grid { display: grid; gap: 20px; max-width: 400px; margin: 0 auto; }
-        .btn-hub { background: #24293e; color: #fff; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #00ffcc; transition: 0.3s; display: block; }
-        .btn-hub:hover { background: #00ffcc; color: #000; box-shadow: 0 0 20px #00ffcc; transform: scale(1.05); }
+        .grid { display: grid; gap: 15px; max-width: 400px; margin: 0 auto; }
+        .btn-hub { background: #24293e; color: #fff; padding: 15px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #8a92b2; transition: 0.3s; display: block; }
+        .btn-hub:hover { background: #ffffff; color: #000; box-shadow: 0 0 20px #ffffff; transform: scale(1.03); }
     </style>
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
-    <p class="subtitulo">HUB CENTRAL DE OPERACIONES</p>
+    <p class="subtitulo">HUB CENTRAL DE OPERACIONES V2</p>
 
     <!-- BUSCADOR DE SKINS -->
     <div class="contenedor-busqueda skins">
@@ -44,12 +48,19 @@
     <!-- BUSCADOR DE MODS -->
     <div class="contenedor-busqueda mods">
         <h3>📦 BUSCADOR DE MODS</h3>
-        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, optimización, furniture...">
+        <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, optimización...">
         <button onclick="buscarMod()" class="btn-buscar btn-mods">Buscar en CurseForge</button>
     </div>
 
+    <!-- BUSCADOR DE PACKS DE RECURSOS -->
+    <div class="contenedor-busqueda recursos">
+        <h3>✨ PACKS DE RECURSOS (TEXTURAS)</h3>
+        <input type="text" id="busquedaRecurso" class="caja-texto" placeholder="Ej. faithful, pvp texture, shaders...">
+        <button onclick="buscarRecurso()" class="btn-buscar btn-recursos">Buscar Texturas</button>
+    </div>
+
     <div class="grid">
-        <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 EDITOR DE SKINS</a>
+        <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 EDITOR DE SKINS ANIMADO</a>
     </div>
 
     <script>
@@ -69,8 +80,18 @@
                 alert("¡Riky, no dejes el cuadro de mods vacío!");
                 return;
             }
-            // URL exacta de búsqueda para mods de Minecraft en CurseForge
-            const urlFinal = `https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}`;
+            const urlFinal = `https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}&class=mc-mods`;
+            window.open(urlFinal, '_blank');
+        }
+
+        function buscarRecurso() {
+            const termino = document.getElementById('busquedaRecurso').value.trim();
+            if (termino === "") {
+                alert("¡Riky, escribe qué textura o pack quieres buscar!");
+                return;
+            }
+            // URL exacta para buscar texture packs / recursos en CurseForge
+            const urlFinal = `https://www.curseforge.com/minecraft/search?search=${encodeURIComponent(termino)}&class=texture-packs`;
             window.open(urlFinal, '_blank');
         }
     </script>
