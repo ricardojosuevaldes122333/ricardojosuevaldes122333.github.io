@@ -7,19 +7,45 @@
     <style>
         body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px 20px; }
         .titulo { font-size: 3rem; color: #00ffcc; text-shadow: 0 0 20px #00ffcc; margin-bottom: 10px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 50px; }
+        .subtitulo { color: #8a92b2; margin-bottom: 40px; }
+        .contenedor-busqueda { background: #1a1d29; max-width: 400px; margin: 0 auto 30px auto; padding: 20px; border-radius: 15px; border: 2px solid #e91e63; box-shadow: 0 0 15px rgba(233,30,99,0.3); }
+        .contenedor-busqueda h3 { margin-top: 0; color: #e91e63; }
+        .caja-texto { width: 80%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; }
+        .btn-buscar { background: #e91e63; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 85%; transition: 0.3s; }
+        .btn-buscar:hover { background: #ff2a75; box-shadow: 0 0 10px #e91e63; }
         .grid { display: grid; gap: 20px; max-width: 400px; margin: 0 auto; }
-        .btn-hub { background: #24293e; color: #fff; padding: 25px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #00ffcc; transition: 0.3s; }
+        .btn-hub { background: #24293e; color: #fff; padding: 20px; border-radius: 15px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border: 2px solid #00ffcc; transition: 0.3s; display: block; }
         .btn-hub:hover { background: #00ffcc; color: #000; box-shadow: 0 0 20px #00ffcc; transform: scale(1.05); }
     </style>
 </head>
 <body>
     <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
     <p class="subtitulo">HUB CENTRAL DE OPERACIONES</p>
-    <div class="grid">
-        <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 CREAR SKIN</a>
-        <a href="MODS_URL_AQUI" class="btn-hub">📦 VER MODS</a>
-        <a href="OTROS_URL_AQUI" class="btn-hub">🌐 OTROS</a>
+
+    <!-- AQUÍ ESTÁ TU BUSCADOR INTELIGENTE -->
+    <div class="contenedor-busqueda">
+        <h3>🔍 BUSCADOR DE SKINS</h3>
+        <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. militar, creeper, pvp...">
+        <button onclick="buscarSkin()" class="btn-buscar">Buscar en The Skindex</button>
     </div>
+
+    <div class="grid">
+        <a href="https://www.minecraftskins.net/skineditor" class="btn-hub" target="_blank">🎨 EDITOR DE SKINS</a>
+        <a href="#" class="btn-hub">📦 VER MODS (Próximamente)</a>
+    </div>
+
+    <script>
+        function buscarSkin() {
+            const termino = document.getElementById('busquedaSkin').value.trim();
+            if (termino === "") {
+                alert("¡Riky, no dejes el cuadro vacío, escribe algo!");
+                return;
+            }
+            // Construimos la URL exacta de búsqueda que usa The Skindex
+            const urlFinal = `https://www.minecraftskins.com/search/skin/${encodeURIComponent(termino)}/1/`;
+            // Redirigimos al usuario en una nueva pestaña
+            window.open(urlFinal, '_blank');
+        }
+    </script>
 </body>
 </html>
