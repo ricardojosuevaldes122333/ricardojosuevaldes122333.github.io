@@ -1,2 +1,131 @@
-echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>🔥 IMPERIO MC 🔥</title><style>:root { --bg: #0f0f13; } body { background: var(--bg); color: #fff; font-family: sans-serif; text-align: center; transition: background 0.5s; } .section { max-width: 500px; margin: 20px auto; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 15px; } .btn { margin: 5px; padding: 10px; cursor: pointer; border: none; border-radius: 5px; color: #fff; font-weight: bold; } .item { display: flex; justify-content: space-between; background: #282a36; margin: 10px 0; padding: 10px; border-radius: 5px; } button.copy { background: #50fa7b; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; color: black; font-weight: bold; }</style></head><body><h1>🎮 IMPERIO MC 🎮</h1><div><button class="btn" style="background:#50fa7b" onclick="change(0)">SKYWARS</button><button class="btn" style="background:#ff79c6" onclick="change(1)">BEDWARS</button><button class="btn" style="background:#8be9fd" onclick="change(2)">PVP</button><button class="btn" style="background:#ffb86c" onclick="change(3)">ANÁRQUICOS</button></div><div class="section" id="list"></div><script>const data = [{cat:"SKYWARS", bg:"#1a1a24", items:[["Hive SW","geo.hivebedrock.network"], ["Cube SW","play.cubecraft.net"]]}, {cat:"BEDWARS", bg:"#2d1b26", items:[["Hive BW","geo.hivebedrock.network"], ["Jartex BW","bedrock.jartex.host"]]}, {cat:"PVP", bg:"#1b2d2d", items:[["Zeqa PVP","zeqa.net"], ["Versai","versai.pro"]]}, {cat:"ANÁRQUICOS", bg:"#2d1b1b", items:[["2b2t","2b2t.org"], ["Lifesteal","bedrock.lifestealmc.net"]]}]; function change(i) { document.body.style.background = data[i].bg; let html = "<h2>"+data[i].cat+"</h2>"; data[i].items.forEach(it => { html += "<div class=\"item\">"+it[0]+" <button class=\"copy\" onclick=\"navigator.clipboard.writeText(\''+it[1]+'\')\">Copiar IP</button></div>"; }); document.getElementById("list").innerHTML = html; } change(0);</script></body></html>' > index.html
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERIO MC</title>
+    <style>
+        body { background-color: #121420; color: #ffffff; font-family: sans-serif; text-align: center; padding: 20px; }
+        .titulo { font-size: 2rem; color: #00ffcc; text-shadow: 0 0 10px #00ffcc; }
+        .contenedor { max-width: 600px; margin: 0 auto; background: #1a1d29; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .tarjeta { background: #24293e; margin: 10px 0; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .btn { background: #00ff66; color: #000; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; }
+        .badge { padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+        .Skywars { background: #2ecc71; }
+        .Bedwars { background: #e91e63; }
+        .PvP { background: #3498db; }
+        .Anárquicos { background: #f39c12; }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">🎮 IMPERIO MC 🎮</h1>
+    <div class="contenedor">
+        <h2>Lista Automatizada por IA</h2>
+        <div class="tarjeta">
+            <div>
+                <strong>Hypixel</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://hypixel.net" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Optifine</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://optifine.net" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Mineplex</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.mineplex.com" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>BSL Shaders</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/customization/bsl-shaders" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>The Hive</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://play.hivemc.com" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Just Enough Items (JEI)</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/jei" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Cubecraft Games</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.cubecraft.net" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>WorldEdit</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://dev.bukkit.org/projects/worldedit" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Wynncraft</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://wynncraft.com" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Create Mod</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/create" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Skyblock.net</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.skyblock.net" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>The Twilight Forest</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Pixelmon Reforged</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://reforged.gg" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>Xaero's Minimap</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+        <div class="tarjeta">
+            <div>
+                <strong>RLCraft</strong> 
+                <span class="badge Skywars">Skywars</span>
+            </div>
+            <a href="https://www.curseforge.com/minecraft/modpacks/rlcraft" target="_blank" class="btn">Ir al Mod</a>
+        </div>
+    </div>
+</body>
+</html>
