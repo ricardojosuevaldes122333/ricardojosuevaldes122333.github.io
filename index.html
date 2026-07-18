@@ -3,120 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB DEFINITIVO</title>
+    <title>IMPERIO MC | DATA CENTER</title>
     <style>
         body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; }
         .titulo { font-size: 2.5rem; color: #00ffcc; text-shadow: 0 0 15px #00ffcc; margin-bottom: 5px; }
         .subtitulo { color: #8a92b2; margin-bottom: 25px; font-size: 0.9rem; }
         
-        .contenedor { background: #1a1d29; max-width: 400px; margin: 0 auto 15px auto; padding: 15px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .contenedor { background: #1a1d29; max-width: 400px; margin: 0 auto 15px auto; padding: 15px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); text-align: left; }
+        .contenedor h3 { text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.2rem; }
+        
         .skins { border: 2px solid #e91e63; }
-        .mods { border: 2px solid #f39c12; }
+        .skins h3 { color: #e91e63; }
+        .biblia { border: 2px solid #f39c12; }
+        .biblia h3 { color: #f39c12; }
         .servers { border: 2px solid #9b59b6; }
-        .biblia { border: 2px solid #00ffcc; }
+        .servers h3 { color: #9b59b6; }
         
-        .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 12px; text-align: center; }
+        .btn-main { background: #24293e; color: #fff; border: 1px solid #444; padding: 12px; border-radius: 8px; width: 100%; display: block; margin-bottom: 10px; font-weight: bold; text-decoration: none; text-align: center; box-sizing: border-box; }
+        .btn-main:hover { border-color: #00ffcc; }
         
-        .btn-main { background: #24293e; color: #fff; border: 1px solid #444; padding: 12px; border-radius: 10px; width: 100%; display: block; margin-bottom: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; cursor: pointer; font-size: 1rem; }
-        .btn-main:hover { transform: scale(1.02); }
-        .btn-skins { background: #e91e63; border: none; }
-        .btn-mods { background: #f39c12; border: none; }
+        .lista-info { list-style: none; padding: 0; margin: 0; }
+        .lista-info li { background: #24293e; padding: 10px; border-radius: 6px; margin-bottom: 8px; font-size: 0.9rem; border-left: 4px solid #f39c12; }
         
         .oculto { display: none; }
-        .grid-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .btn-sub { background: #24293e; color: #fff; padding: 12px; border-radius: 8px; font-size: 0.9rem; text-decoration: none; font-weight: bold; border: 1px solid #e91e63; }
-        .btn-sub:hover { background: #e91e63; }
-        .btn-biblia { background: #333; border: 1px solid #00ffcc; }
-        .btn-biblia:hover { background: #00ffcc; color: #000; }
-        .btn-volver { background: #ff2a75; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; font-weight: bold; }
-        
-        .info-status { color: #57ff57; font-size: 0.85rem; font-weight: bold; margin-top: 10px; letter-spacing: 1px; }
+        .btn-volver { background: #e91e63; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <!-- PANTALLA PRINCIPAL -->
     <div id="pantalla-principal">
         <h1 class="titulo">🎮 IMPERIO MC</h1>
-        <p class="subtitulo">HUB DE OPERACIONES ESTÁTICO TOTAL</p>
+        <p class="subtitulo">BASE DE DATOS INDESTRUCTIBLE A PRUEBA DE CLOUDFLARE</p>
         
-        <!-- SECCIÓN SKINS -->
         <div class="contenedor skins">
             <h3>🎨 SKINS PREMIUM</h3>
-            <input type="text" id="busquedaSkin" class="caja-texto" placeholder="Ej. pvp, neon, creeper...">
-            <button onclick="buscarSkin()" class="btn-main btn-skins">🔍 Buscar Skin Directo</button>
-            <button onclick="mostrarPantalla('pantalla-skins')" class="btn-main" style="background: #9c27b0; border:none;">🗂️ Ver por Categorías</button>
+            <a href="https://www.minecraftskins.net/" target="_blank" class="btn-main">🌐 Catálogo General de Skins</a>
         </div>
 
-        <!-- SECCIÓN MODS SIN CLOUDFLARE -->
-        <div class="contenedor mods">
-            <h3>📦 BUSCADOR DE MODS / ADDONS</h3>
-            <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns, mutant...">
-            <button onclick="buscarMod()" class="btn-main btn-mods">🚀 Buscar en MCPEDL</button>
+        <div class="contenedor biblia">
+            <h3>📕 GUÍAS LOCALES (SIN REDIRECCIÓN)</h3>
+            <button onclick="irA('pociones')" class="btn-main">⚗️ Ver Recetas de Pociones Comunes</button>
         </div>
 
-        <!-- SECCIÓN BIBLIA DE CRAFTEO -->
-        <div class="contenedorMain biblia">
-            <h3>📕 BIBLIA DE MINECRAFT</h3>
-            <button onclick="mostrarPantalla('pantalla-guia')" class="btn-main" style="border-color: #00ffcc;">⚗️ Guía de Pociones & Crafteo</button>
-        </div>
-
-        <!-- SECCIÓN SERVIDORES -->
         <div class="contenedor servers">
-            <h3>🌐 SERVIDORES</h3>
-            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main" style="background: #9b59b6; border: none; text-align: center;">🚀 ENTRAR AL CATÁLOGO</a>
-            <div class="info-status">● VERIFICADOS ON-LINE STRATEGIC</div>
+            <h3>🌐 SERVIDORES BEDROCK</h3>
+            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main">🚀 Lista de Servers Estable</a>
         </div>
     </div>
 
-    <!-- PANTALLA INTERNA: CATEGORÍAS DE SKINS -->
-    <div id="pantalla-skins" class="contenedor skins oculto" style="max-width: 400px; margin: 0 auto;">
-        <h3>🗂️ CATEGORÍAS DE SKINS</h3>
-        <div class="grid-sub">
-            <a href="https://www.minecraftskins.net/category/movies" target="_blank" class="btn-sub">🎬 Movies</a>
-            <a href="https://www.minecraftskins.net/category/tv" target="_blank" class="btn-sub">📺 TV Series</a>
-            <a href="https://www.minecraftskins.net/category/games" target="_blank" class="btn-sub">🎮 Games</a>
-            <a href="https://www.minecraftskins.net/category/people" target="_blank" class="btn-sub">👥 People</a>
-            <a href="https://www.minecraftskins.net/category/fantasy" target="_blank" class="btn-sub">🦄 Fantasy</a>
-            <a href="https://www.minecraftskins.net/category/mobs" target="_blank" class="btn-sub">💀 Mobs</a>
-        </div>
-        <button onclick="volver()" class="btn-volver">← Volver al Menú</button>
-    </div>
-
-    <!-- PANTALLA INTERNA: GUÍA Y POCIONES -->
-    <div id="pantalla-guia" class="contenedor biblia oculto" style="max-width: 400px; margin: 0 auto;">
-        <h3>⚗️ BIBLIA DE SUPERVIVENCIA</h3>
-        <div class="grid-sub">
-            <a href="https://minecraft.fandom.com/es/wiki/Pociones" target="_blank" class="btn-sub btn-biblia">🧪 Pociones</a>
-            <a href="https://minecraft.fandom.com/es/wiki/Mesa_de_crafteo" target="_blank" class="btn-sub btn-biblia">🔨 Crafteos</a>
-            <a href="https://minecraft.fandom.com/es/wiki/Encantamiento" target="_blank" class="btn-sub btn-biblia">✨ Encantos</a>
-            <a href="https://minecraft.fandom.com/es/wiki/Comandos" target="_blank" class="btn-sub btn-biblia">⌨️ Comandos</a>
-        </div>
-        <button onclick="volver()" class="btn-volver">← Volver al Menú</button>
+    <!-- PANTALLA INTERNA: LISTA DE POCIONES FIJAS -->
+    <div id="pantalla-pociones" class="contenedor biblia oculto" style="max-width: 400px; margin: 0 auto;">
+        <h3>⚗️ RECETARIO OFICIAL DEL IMPERIO</h3>
+        <ul class="lista-info">
+            <li><strong>💪 Fuerza:</strong> Verruga del Nether + Polvo de Blaze</li>
+            <li><strong>🫥 Invisibilidad:</strong> Poción Visión Nocturna + Ojo Araña Fermentado</li>
+            <li><strong>⚡ Velocidad:</strong> Verruga del Nether + Azúcar</li>
+            <li><strong>❤️ Curación:</strong> Verruga del Nether + Rodaja de Sandía Reluciente</li>
+            <li><strong>🧱 Soporte:</strong> 3 de Adoquín + 1 Vara de Blaze (Crafteo)</li>
+            <li><strong>🪣 Caldero:</strong> 7 Lingotes de Hierro en "U" (Crafteo)</li>
+        </ul>
+        <button onclick="volver()" class="btn-volver">← Volver al HUB</button>
     </div>
 
     <script>
-        function buscarSkin() {
-            const termino = document.getElementById('busquedaSkin').value.trim();
-            if (termino === "") { alert("¡Riky, escribe algo!"); return; }
-            window.open(`https://www.minecraftskins.net/search/${encodeURIComponent(termino)}`, '_blank');
-        }
-
-        function buscarMod() {
-            const termino = document.getElementById('busquedaMod').value.trim();
-            if (termino === "") { alert("¡Riky, escribe el mod a buscar!"); return; }
-            // Redirección blindada a MCPEDL libre de bloqueos Cloudflare
-            window.open(`https://mcpedl.com/?s=${encodeURIComponent(termino)}`, '_blank');
-        }
-
-        function mostrarPantalla(id) {
+        function irA(pantalla) {
             document.getElementById('pantalla-principal').classList.add('oculto');
-            document.getElementById(id).classList.remove('oculto');
+            if(pantalla === 'pociones') document.getElementById('pantalla-pociones').classList.remove('oculto');
         }
-
         function volver() {
-            document.getElementById('pantalla-skins').classList.add('oculto');
-            document.getElementById('pantalla-guia').classList.add('oculto');
+            document.getElementById('pantalla-pociones').classList.add('oculto');
             document.getElementById('pantalla-principal').classList.remove('oculto');
         }
     </script>
