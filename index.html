@@ -3,48 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | HUB DEFINITIVO</title>
+    <title>IMPERIO MC | PANEL DE CONTROL NETWORK</title>
     <style>
-        body { background-color: #0f111a; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; }
-        .titulo { font-size: 2.5rem; color: #00ffcc; text-shadow: 0 0 15px #00ffcc; margin-bottom: 10px; }
-        .subtitulo { color: #8a92b2; margin-bottom: 25px; font-size: 1rem; }
-        .contenedor { background: #1a1d29; max-width: 400px; margin: 0 auto 15px auto; padding: 15px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .btn-main { background: #24293e; color: #fff; border: 1px solid #444; padding: 15px; border-radius: 10px; width: 100%; display: block; margin-bottom: 10px; font-weight: bold; text-decoration: none; transition: 0.3s; font-size: 1rem; cursor: pointer;}
-        .btn-main:hover { border-color: #00ffcc; transform: scale(1.02); }
-        .caja-texto { width: 85%; padding: 10px; border-radius: 8px; border: none; background: #24293e; color: #fff; font-size: 1rem; margin-bottom: 10px; text-align: center; }
-        .btn-buscar { color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 90%; background: #f39c12; margin-bottom: 10px;}
-        .oculto { display: none; }
-        .grid-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;}
-        .btn-sub { background: #333; color: #fff; padding: 10px; border-radius: 8px; font-size: 0.85rem; text-decoration: none; border: 1px solid #e91e63;}
-        .btn-volver { background: #e91e63; color: #fff; padding: 10px; border-radius: 8px; display: block; margin-top: 15px; text-decoration: none; width: 100%; font-weight: bold; cursor: pointer; border: none;}
-        .lista-pociones { text-align: left; background: #24293e; padding: 15px 15px 15px 35px; border-radius: 8px; font-size: 0.9rem; line-height: 1.6; color: #ddd; border: 1px solid #f39c12; }
-        .lista-pociones span { color: #f39c12; font-weight: bold; }
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: rgba(22, 27, 38, 0.85);
+            --accent-cyan: #00ffcc;
+            --accent-pink: #e91e63;
+            --accent-gold: #f39c12;
+            --accent-purple: #9b59b6;
+            --text-color: #f0f3f8;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #1a1f2c 0%, var(--bg-color) 80%);
+            color: var(--text-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px 15px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .titulo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 18px var(--accent-cyan);
+            letter-spacing: 1px;
+            margin: 0 0 5px 0;
+        }
+
+        .subtitulo {
+            color: #8a92b2;
+            font-size: 0.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            color: #a0a5b5;
+            text-transform: uppercase;
+        }
+
+        .contenedor {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 420px;
+            padding: 18px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .contenedor h3 {
+            margin-top: 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .btn-main {
+            background: #161a26;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 14px;
+            border-radius: 10px;
+            width: 100%;
+            display: block;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .btn-main:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+        }
+
+        .caja-texto {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #2e3548;
+            background: #11141d;
+            color: #fff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .caja-texto:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .btn-buscar {
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 100%;
+            background: linear-gradient(135deg, #f39c12, #d35400);
+            transition: 0.2s;
+        }
+
+        .btn-buscar:hover {
+            opacity: 0.9;
+        }
+
+        .grid-sub {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-sub {
+            background: #11141d;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            border: 1px solid var(--accent-pink);
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .btn-sub:hover {
+            background: var(--accent-pink);
+        }
+
+        .btn-volver {
+            background: var(--accent-pink);
+            color: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .lista-pociones {
+            text-align: left;
+            background: #11141d;
+            padding: 15px 15px 15px 35px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            border: 1px solid var(--accent-gold);
+            margin: 0;
+        }
+
+        .lista-pociones span {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .oculto {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div id="pantalla-principal">
+
+    <div class="header">
         <h1 class="titulo">🎮 IMPERIO MC</h1>
-        <p class="subtitulo">HUB ESTÁTICO A PRUEBA DE FALLOS</p>
-        
-        <div class="contenedor" style="border: 2px solid #e91e63;">
+        <p class="subtitulo">PANEL DE CONTROL DE SERVICIOS</p>
+        <div class="badge-live">
+            <span class="dot"></span> NODE SERVER ACTIVE: ONLINE
+        </div>
+    </div>
+
+    <!-- Barra de estatus técnico para que parezca panel de negocios/servidor -->
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">Uptime Servidor</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">12 ms</div>
+            <div class="stat-label">Latencia de Red</div>
+        </div>
+    </div>
+
+    <div id="pantalla-principal">
+        <div class="contenedor" style="border-left: 4px solid var(--accent-pink);">
             <h3>🎨 SECCIÓN DE SKINS PREMIUM</h3>
-            <button onclick="irA('skins')" class="btn-main" style="border-color: #e91e63;">🗂️ Ver Categorías Oficiales</button>
+            <button onclick="irA('skins')" class="btn-main">🗂️ Ver Categorías Oficiales</button>
         </div>
 
-        <div class="contenedor" style="border: 2px solid #f39c12;">
+        <div class="contenedor" style="border-left: 4px solid var(--accent-gold);">
             <h3>📦 BUSCADOR DE MODS (MCPEDL)</h3>
             <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns...">
             <button onclick="buscarMod()" class="btn-buscar">Buscar Addons Bedrock</button>
         </div>
 
-        <div class="contenedor" style="border: 2px solid #00ffcc;">
+        <div class="contenedor" style="border-left: 4px solid var(--accent-cyan);">
             <h3>📕 BIBLIA DE MINECRAFT</h3>
-            <button onclick="irA('guia')" class="btn-main" style="border-color: #00ffcc;">⚗️ Guía Directa de Pociones</button>
+            <button onclick="irA('guia')" class="btn-main">⚗️ Guía Directa de Pociones</button>
         </div>
 
-        <div class="contenedor" style="border: 2px solid #9b59b6;">
-            <h3>🌐 SERVIDORES</h3>
-            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main" style="border-color: #9b59b6; background: #9b59b6;">🚀 ENTRAR AL CATÁLOGO</a>
+        <div class="contenedor" style="border-left: 4px solid var(--accent-purple);">
+            <h3>🌐 SERVIDORES Y REDES</h3>
+            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main" style="background: rgba(155, 89, 182, 0.2); border-color: var(--accent-purple);">🚀 ENTRAR AL CATÁLOGO</a>
         </div>
     </div>
 
