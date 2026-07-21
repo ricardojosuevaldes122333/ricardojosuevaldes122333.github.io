@@ -3,332 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIO MC | PANEL DE CONTROL NETWORK</title>
+    <title>NEXUS ENTERPRISE | GLOBAL SERVICES HUB</title>
     <style>
         :root {
-            --bg-color: #0b0e14;
-            --card-bg: rgba(22, 27, 38, 0.85);
-            --accent-cyan: #00ffcc;
-            --accent-pink: #e91e63;
-            --accent-gold: #f39c12;
-            --accent-purple: #9b59b6;
-            --text-color: #f0f3f8;
+            --bg-base: #07090e;
+            --surface: rgba(16, 20, 30, 0.9);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --primary: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-gold: #f59e0b;
+            --accent-emerald: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 50% 0%, #1a1f2c 0%, var(--bg-color) 80%);
-            color: var(--text-color);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 20px 15px;
             min-height: 100vh;
-            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .header {
+        .header-enterprise {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .company-tag {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+            font-weight: 700;
         }
 
         .titulo {
-            font-size: 2.2rem;
-            font-weight: 900;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #fff;
-            text-shadow: 0 0 18px var(--accent-cyan);
-            letter-spacing: 1px;
-            margin: 0 0 5px 0;
+            letter-spacing: 0.5px;
+            margin: 0 0 8px 0;
         }
 
-        .subtitulo {
-            color: #8a92b2;
-            font-size: 0.8rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .badge-live {
+        .status-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(0, 255, 204, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-top: 10px;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 600;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-cyan);
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-emerald);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-cyan);
+            box-shadow: 0 0 8px var(--accent-emerald);
+            animation: pulse 2s infinite;
         }
 
-        .stats-bar {
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Panel de Métricas de Negocio */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
             width: 100%;
-            max-width: 420px;
-            margin-bottom: 15px;
+            max-width: 440px;
+            margin-bottom: 18px;
         }
 
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 10px;
-            border-radius: 12px;
+        .metric-card {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 6px;
+            border-radius: 10px;
             text-align: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
 
-        .stat-value {
-            font-size: 1.1rem;
-            font-weight: bold;
+        .metric-val {
+            font-size: 0.95rem;
+            font-weight: 700;
             color: var(--accent-gold);
         }
 
-        .stat-label {
-            font-size: 0.68rem;
-            color: #a0a5b5;
+        .metric-lbl {
+            font-size: 0.6rem;
+            color: var(--text-muted);
             text-transform: uppercase;
+            margin-top: 2px;
         }
 
-        .contenedor {
-            background: var(--card-bg);
+        /* Contenedores Principales */
+        .module-box {
+            background: var(--surface);
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             padding: 18px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
             margin-bottom: 15px;
-            box-sizing: border-box;
-            transition: transform 0.2s;
+            transition: border-color 0.3s ease;
         }
 
-        .contenedor h3 {
-            margin-top: 0;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+        .module-box:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .module-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-main {
-            background: #161a26;
+        .btn-action {
+            background: #1e2538;
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 14px;
-            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 13px;
+            border-radius: 9px;
             width: 100%;
-            display: block;
-            font-weight: bold;
+            font-weight: 600;
             text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             transition: all 0.2s ease;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             cursor: pointer;
-            box-sizing: border-box;
-            text-align: center;
         }
 
-        .btn-main:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+        .btn-action:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
-        .caja-texto {
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .enterprise-input {
             width: 100%;
             padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #2e3548;
-            background: #11141d;
+            border-radius: 9px;
+            border: 1px solid var(--border-subtle);
+            background: #0b0f17;
             color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            text-align: center;
-            box-sizing: border-box;
+            font-size: 0.88rem;
             outline: none;
+            text-align: center;
+            transition: border-color 0.2s;
         }
 
-        .caja-texto:focus {
-            border-color: var(--accent-gold);
+        .enterprise-input:focus {
+            border-color: var(--accent-cyan);
         }
 
-        .btn-buscar {
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
             color: #fff;
             border: none;
             padding: 12px;
-            border-radius: 10px;
-            font-weight: bold;
+            border-radius: 9px;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             width: 100%;
-            background: linear-gradient(135deg, #f39c12, #d35400);
-            transition: 0.2s;
+            transition: opacity 0.2s;
         }
 
-        .btn-buscar:hover {
+        .btn-submit:hover {
             opacity: 0.9;
         }
 
         .grid-sub {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .btn-sub {
-            background: #11141d;
-            color: #fff;
+            background: #0b0f17;
+            color: var(--text-main);
             padding: 10px;
             border-radius: 8px;
             font-size: 0.8rem;
             text-decoration: none;
-            border: 1px solid var(--accent-pink);
+            border: 1px solid var(--border-subtle);
             text-align: center;
             transition: 0.2s;
         }
 
         .btn-sub:hover {
-            background: var(--accent-pink);
+            background: var(--primary);
+            border-color: var(--primary);
         }
 
-        .btn-volver {
-            background: var(--accent-pink);
+        .btn-back {
+            background: #334155;
             color: #fff;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 11px;
+            border-radius: 9px;
             display: block;
-            margin-top: 15px;
-            text-decoration: none;
             width: 100%;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             border: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            margin-top: 12px;
+            transition: background 0.2s;
         }
 
-        .lista-pociones {
+        .btn-back:hover {
+            background: #475569;
+        }
+
+        .data-list {
             text-align: left;
-            background: #11141d;
-            padding: 15px 15px 15px 35px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: #d1d5db;
-            border: 1px solid var(--accent-gold);
+            background: #0b0f17;
+            padding: 15px 15px 15px 30px;
+            border-radius: 9px;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            border: 1px solid var(--border-subtle);
             margin: 0;
         }
 
-        .lista-pociones span {
+        .data-list span {
             color: var(--accent-gold);
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        .oculto {
+        .hidden {
             display: none;
+        }
+
+        /* Registro de Actividad Estilo Terminal de Negocios */
+        .audit-log {
+            font-family: monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-align: left;
+            background: #0b0f17;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            margin-top: 10px;
+            max-height: 50px;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1 class="titulo">🎮 IMPERIO MC</h1>
-        <p class="subtitulo">PANEL DE CONTROL DE SERVICIOS</p>
-        <div class="badge-live">
-            <span class="dot"></span> NODE SERVER ACTIVE: ONLINE
+    <div class="header-enterprise">
+        <div class="company-tag">Enterprise Cloud Infrastructure</div>
+        <h1 class="titulo">NEXUS GLOBAL HUB</h1>
+        <div class="status-pill">
+            <span class="pulse-dot"></span> SYSTEM OPERATIONAL : 99.99%
         </div>
     </div>
 
-    <!-- Barra de estatus técnico para que parezca panel de negocios/servidor -->
-    <div class="stats-bar">
-        <div class="stat-card">
-            <div class="stat-value">99.9%</div>
-            <div class="stat-label">Uptime Servidor</div>
+    <!-- Panel de Métricas Corporativas -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-val">14.2ms</div>
+            <div class="metric-lbl">Latency</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-value">12 ms</div>
-            <div class="stat-label">Latencia de Red</div>
+        <div class="metric-card">
+            <div class="metric-val">Active</div>
+            <div class="metric-lbl">Gateway</div>
         </div>
-    </div>
-
-    <div id="pantalla-principal">
-        <div class="contenedor" style="border-left: 4px solid var(--accent-pink);">
-            <h3>🎨 SECCIÓN DE SKINS PREMIUM</h3>
-            <button onclick="irA('skins')" class="btn-main">🗂️ Ver Categorías Oficiales</button>
-        </div>
-
-        <div class="contenedor" style="border-left: 4px solid var(--accent-gold);">
-            <h3>📦 BUSCADOR DE MODS (MCPEDL)</h3>
-            <input type="text" id="busquedaMod" class="caja-texto" placeholder="Ej. lucky blocks, guns...">
-            <button onclick="buscarMod()" class="btn-buscar">Buscar Addons Bedrock</button>
-        </div>
-
-        <div class="contenedor" style="border-left: 4px solid var(--accent-cyan);">
-            <h3>📕 BIBLIA DE MINECRAFT</h3>
-            <button onclick="irA('guia')" class="btn-main">⚗️ Guía Directa de Pociones</button>
-        </div>
-
-        <div class="contenedor" style="border-left: 4px solid var(--accent-purple);">
-            <h3>🌐 SERVIDORES Y REDES</h3>
-            <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-main" style="background: rgba(155, 89, 182, 0.2); border-color: var(--accent-purple);">🚀 ENTRAR AL CATÁLOGO</a>
+        <div class="metric-card">
+            <div class="metric-val">Secure</div>
+            <div class="metric-lbl">Protocol</div>
         </div>
     </div>
 
-    <div id="pantalla-skins" class="contenedor oculto">
-        <h3>🗂️ CATEGORÍAS DE SKINS</h3>
+    <div id="view-main" class="module-box" style="border-left: 3px solid var(--primary);">
+        <div class="module-title">📁 Módulo 01: Repositorio de Activos</div>
+        <button onclick="switchView('skins')" class="btn-action">🗂️ Acceder al Catálogo de Skins</button>
+
+        <div style="margin-top: 15px;"></div>
+        <div class="module-title">🔍 Módulo 02: Motor de Búsqueda Addons</div>
+        <div class="input-group">
+            <input type="text" id="queryInput" class="enterprise-input" placeholder="Ingrese término de búsqueda...">
+            <button onclick="executeSearch()" class="btn-submit">Ejecutar Búsqueda Global</button>
+        </div>
+
+        <div style="margin-top: 15px;"></div>
+        <div class="module-title">⚗️ Módulo 03: Base de Datos Alquímica</div>
+        <button onclick="switchView('guide')" class="btn-action">📊 Consultar Directorio de Fórmulas</button>
+
+        <div style="margin-top: 15px;"></div>
+        <div class="module-title">🌐 Módulo 04: Infraestructura Multijugador</div>
+        <a href="https://minecraft-server-list.com/sort/bedrock/" target="_blank" class="btn-action" style="background: rgba(59, 130, 246, 0.15); border-color: var(--primary);">🚀 Conectar a Servidores Externos</a>
+
+        <div class="audit-log">
+            > SEC_LOG: Node cluster synchronized successfully.<br>
+            > STATUS: Ready for high-concurrency requests.
+        </div>
+    </div>
+
+    <!-- Vista de Skins / Activos -->
+    <div id="view-skins" class="module-box hidden" style="border-left: 3px solid var(--accent-cyan);">
+        <div class="module-title">🗂️ Categorías de Activos Gráficos</div>
         <div class="grid-sub">
-            <a href="https://www.minecraftskins.net/category/movies" target="_blank" class="btn-sub">🎬 Movies</a>
-            <a href="https://www.minecraftskins.net/category/tv" target="_blank" class="btn-sub">📺 TV Series</a>
-            <a href="https://www.minecraftskins.net/category/games" target="_blank" class="btn-sub">🎮 Games</a>
-            <a href="https://www.minecraftskins.net/category/people" target="_blank" class="btn-sub">👥 People</a>
-            <a href="https://www.minecraftskins.net/category/mobs" target="_blank" class="btn-sub">💀 Mobs</a>
-            <a href="https://www.minecraftskins.net/category/other" target="_blank" class="btn-sub">🌀 Other</a>
+            <a href="https://www.minecraftskins.net/category/movies" target="_blank" class="btn-sub">🎬 Cinema</a>
+            <a href="https://www.minecraftskins.net/category/tv" target="_blank" class="btn-sub">📺 Series</a>
+            <a href="https://www.minecraftskins.net/category/games" target="_blank" class="btn-sub">🎮 Gaming</a>
+            <a href="https://www.minecraftskins.net/category/people" target="_blank" class="btn-sub">👥 Profiles</a>
+            <a href="https://www.minecraftskins.net/category/mobs" target="_blank" class="btn-sub">💀 Entities</a>
+            <a href="https://www.minecraftskins.net/category/other" target="_blank" class="btn-sub">🌀 General</a>
         </div>
-        <button onclick="volver()" class="btn-volver">← Volver al Menú</button>
+        <button onclick="switchView('main')" class="btn-back">← Regresar al Panel Principal</button>
     </div>
 
-    <div id="pantalla-guia" class="contenedor oculto">
-        <h3>⚗️ RECETAS DE POCIONES (EN VIVO)</h3>
-        <ul class="lista-pociones">
-            <li><span>Rara (Base):</span> Botella de Agua + Verruga del Nether</li>
-            <li><span>Fuerza:</span> Poción Rara + Polvo de Blaze</li>
-            <li><span>Velocidad:</span> Poción Rara + Azúcar</li>
-            <li><span>Curación:</span> Poción Rara + Sandía Reluciente</li>
+    <!-- Vista de Guía de Fórmulas / Pociones -->
+    <div id="view-guide" class="module-box hidden" style="border-left: 3px solid var(--accent-gold);">
+        <div class="module-title">⚗️ Directorio de Especificaciones Técnicas</div>
+        <ul class="data-list">
+            <li><span>Base Estándar:</span> Botella de Agua + Verruga del Nether</li>
+            <li><span>Mejora de Fuerza:</span> Fórmula Base + Polvo de Blaze</li>
+            <li><span>Aceleración:</span> Fórmula Base + Azúcar</li>
+            <li><span>Regeneración Vital:</span> Fórmula Base + Sandía Reluciente</li>
             <li><span>Invisibilidad:</span> Visión Nocturna + Ojo de Araña Fermentado</li>
-            <li><span>Caída Lenta:</span> Poción Rara + Membrana de Fantasma</li>
-            <li><span>Respiración Acuática:</span> Poción Rara + Pez Globo</li>
+            <li><span>Reducción de Gravedad:</span> Fórmula Base + Membrana de Fantasma</li>
+            <li><span>Oxigenación Subacuática:</span> Fórmula Base + Pez Globo</li>
         </ul>
-        <button onclick="volver()" class="btn-volver">← Volver al Menú</button>
+        <button onclick="switchView('main')" class="btn-back">← Regresar al Panel Principal</button>
     </div>
 
     <script>
-        function buscarMod() {
-            const termino = document.getElementById('busquedaMod').value.trim();
-            if (termino === "") { alert("¡Riky, no dejes el cuadro vacío!"); return; }
-            window.open(`https://mcpedl.com/?s=${encodeURIComponent(termino)}`, '_blank');
+        function executeSearch() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (query === "") { 
+                alert("Advertencia: El parámetro de búsqueda no puede estar vacío."); 
+                return; 
+            }
+            window.open(`https://mcpedl.com/?s=${encodeURIComponent(query)}`, '_blank');
         }
-        function irA(pantalla) {
-            document.getElementById('pantalla-principal').classList.add('oculto');
-            if(pantalla === 'skins') document.getElementById('pantalla-skins').classList.remove('oculto');
-            if(pantalla === 'guia') document.getElementById('pantalla-guia').classList.remove('oculto');
-        }
-        function volver() {
-            document.getElementById('pantalla-skins').classList.add('oculto');
-            document.getElementById('pantalla-guia').classList.add('oculto');
-            document.getElementById('pantalla-principal').classList.remove('oculto');
+
+        function switchView(target) {
+            document.getElementById('view-main').classList.add('hidden');
+            document.getElementById('view-skins').classList.add('hidden');
+            document.getElementById('view-guide').classList.add('hidden');
+
+            if(target === 'skins') document.getElementById('view-skins').classList.remove('hidden');
+            if(target === 'guide') document.getElementById('view-guide').classList.remove('hidden');
+            if(target === 'main') document.getElementById('view-main').classList.remove('hidden');
         }
     </script>
 </body>
